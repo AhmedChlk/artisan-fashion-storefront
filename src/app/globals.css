@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fff8f4;
+    color: #1d1b19;
+  }
+
+  /* Focus visible — accessibilité */
+  :focus-visible {
+    outline: 2px solid #554034;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Réduction de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Scrollbar custom (facultatif) */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #f3ede9; }
+  ::-webkit-scrollbar-thumb { background: #d2c4bc; border-radius: 3px; }
+}
+
+@layer utilities {
+  /* Typographie utilitaires */
+  .font-display { font-family: var(--font-playfair), Georgia, serif; }
+  .font-body    { font-family: var(--font-dm-sans), system-ui, sans-serif; }
+  .font-price   { font-family: var(--font-dm-mono), monospace; }
+
+  /* Séparateurs hairline */
+  .border-hairline { border-color: rgba(29, 27, 25, 0.12); }
+
+  /* Image overlay hover */
+  .img-hover-scale {
+    overflow: hidden;
+  }
+  .img-hover-scale img {
+    transition: transform 500ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  .img-hover-scale:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Scrim overlay */
+  .scrim {
+    background-color: rgba(29, 27, 25, 0.5);
+  }
+}
