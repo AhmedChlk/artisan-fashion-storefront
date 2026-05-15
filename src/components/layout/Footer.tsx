@@ -1,111 +1,48 @@
 import Link from "next/link";
-import { Instagram } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-hairline bg-surface-container-low mt-section-mobile lg:mt-section">
-      <div className="mx-auto max-w-content px-margin-mobile lg:px-margin py-16 grid grid-cols-2 lg:grid-cols-4 gap-10">
-        <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
-          <span className="font-display text-headline-md text-primary tracking-widest uppercase">
-            THE ARTISAN
-          </span>
-          <p className="text-body-sm text-on-surface-variant max-w-xs">
-            © 2024 THE ARTISAN ATELIER. HANDCRAFTED WITH INTENTION.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="text-label-md uppercase text-on-surface-muted">
-            Boutique
-          </span>
-          <Link
-            href="/boutique"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            Toute la collection
-          </Link>
-          <Link
-            href="/boutique"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            Robes
-          </Link>
-          <Link
-            href="/boutique"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            Hauts
-          </Link>
-          <Link
-            href="/boutique"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            Pantalons
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="text-label-md uppercase text-on-surface-muted">
-            Maison
-          </span>
-          <Link
-            href="/a-propos"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            À propos
-          </Link>
-          <Link
-            href="/contact"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            Contact
-          </Link>
-          <Link
-            href="/contact"
-            className="text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            FAQ
-          </Link>
-        </div>
-
-        <div className="flex flex-col gap-3">
-          <span className="text-label-md uppercase text-on-surface-muted">
-            Suivre
-          </span>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-body-sm text-on-surface-variant hover:text-primary"
-          >
-            <Instagram className="w-4 h-4" /> Instagram
-          </a>
-          <span className="text-body-sm text-on-surface-variant">
-            contact@artisan.fr
-          </span>
-        </div>
+    <footer className="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant/10 w-full px-gutter py-section flex flex-col md:flex-row justify-between items-start gap-gutter mt-auto">
+      {/* Logo Column */}
+      <div className="w-full md:w-1/4 mb-12 md:mb-0">
+        <Link 
+          href="/" 
+          className="font-headline-lg text-headline-lg italic text-primary dark:text-primary-fixed-dim hover:text-primary transition-colors duration-200 block mb-6 opacity-80 hover:opacity-100 transition-opacity uppercase"
+        >
+          THE ARTISAN
+        </Link>
+        <p className="font-body-lg text-body-lg text-on-surface-variant text-sm max-w-[200px]">
+          © {year} THE ARTISAN ATELIER. HANDCRAFTED WITH INTENTION.
+        </p>
       </div>
-      <div className="border-t border-hairline">
-        <div className="mx-auto max-w-content px-margin-mobile lg:px-margin py-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-2">
-          <span className="text-caption text-on-surface-muted">
-            © {year} L&apos;Artisan — Fait à Paris.
-          </span>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/contact"
-              className="text-caption text-on-surface-muted hover:text-primary"
-            >
-              Mentions légales
-            </Link>
-            <Link
-              href="/contact"
-              className="text-caption text-on-surface-muted hover:text-primary"
-            >
-              CGV
-            </Link>
-          </div>
+
+      {/* Links Columns Wrapper */}
+      <div className="w-full md:w-3/4 flex flex-col sm:flex-row justify-between gap-12 sm:gap-8">
+        
+        {/* Navigation Column */}
+        <div className="flex flex-col gap-4">
+          <h4 className="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-2">Navigation</h4>
+          <Link href="#" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Journal</Link>
+          <Link href="#" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Sustainability</Link>
+          <Link href="#" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Care Guide</Link>
         </div>
+
+        {/* Legal Column */}
+        <div className="flex flex-col gap-4">
+          <h4 className="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-2">Légal</h4>
+          <Link href="#" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Shipping</Link>
+          <Link href="/contact" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Contact</Link>
+          <Link href="#" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Mentions Légales</Link>
+        </div>
+
+        {/* Réseaux Column */}
+        <div className="flex flex-col gap-4">
+          <h4 className="font-label-md text-label-md text-on-surface uppercase tracking-widest mb-2">Réseaux</h4>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Instagram</a>
+          <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="font-body-lg text-body-lg text-on-surface-variant hover:text-primary transition-colors duration-200 opacity-80 hover:opacity-100">Pinterest</a>
+        </div>
+        
       </div>
     </footer>
   );

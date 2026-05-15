@@ -50,7 +50,7 @@ export function Navigation() {
                   key={l.href}
                   href={l.href}
                   className={cn(
-                    "transition-colors hover:opacity-70 duration-300 uppercase font-label-md text-label-md",
+                    "transition-colors hover:opacity-70 duration-300 uppercase font-label-md text-label-md whitespace-nowrap",
                     active
                       ? "text-primary dark:text-primary-fixed-dim border-b border-primary dark:border-primary-fixed-dim pb-1"
                       : "text-on-surface-variant dark:text-on-surface-variant hover:text-primary"
