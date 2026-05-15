@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, Search, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { useCartStore } from "@/lib/store/cartStore";
 import { useUIStore } from "@/lib/store/uiStore";
@@ -32,84 +31,86 @@ export function Navigation() {
 
   return (
     <>
-      <header
+      <nav
         className={cn(
-          "sticky top-0 z-40 bg-surface/85 backdrop-blur-sm transition-shadow border-b border-hairline",
+          "bg-surface dark:bg-surface-dim font-body-lg text-body-lg sticky top-0 z-40 border-b border-outline-variant/20 transition-shadow",
           scrolled && "shadow-[0_1px_0_rgba(29,27,25,0.08)]",
         )}
       >
-        <div className="mx-auto max-w-content px-margin-mobile lg:px-margin h-14 lg:h-[72px] grid grid-cols-3 items-center">
-          <div className="flex items-center gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 items-center w-full px-gutter py-6 max-w-content-max mx-auto">
+          {/* Navigation Links (Web) */}
+          <div className="hidden md:flex gap-8 items-center justify-start">
+            {links.map((l) => {
+              const active =
+                l.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(l.href);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={cn(
+                    "transition-colors hover:opacity-70 duration-300 uppercase font-label-md text-label-md",
+                    active
+                      ? "text-primary dark:text-primary-fixed-dim border-b border-primary dark:border-primary-fixed-dim pb-1"
+                      : "text-on-surface-variant dark:text-on-surface-variant hover:text-primary"
+                  )}
+                >
+                  {l.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Brand Logo */}
+          <div className="flex md:justify-center justify-start items-center gap-4">
             <button
               type="button"
               onClick={openMobileMenu}
-              aria-label="Ouvrir le menu"
-              className="lg:hidden p-2 -ml-2"
+              aria-label="Menu"
+              className="md:hidden text-primary hover:opacity-70 transition-opacity p-2 -ml-2"
             >
-              <Menu className="w-5 h-5 text-on-surface" />
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
             </button>
-            <nav className="hidden lg:flex items-center gap-8">
-              {links.map((l) => {
-                const active =
-                  l.href === "/"
-                    ? pathname === "/"
-                    : pathname.startsWith(l.href);
-                return (
-                  <Link
-                    key={l.href}
-                    href={l.href}
-                    className={cn(
-                      "relative text-label-md uppercase tracking-[0.1em] text-on-surface-variant hover:text-on-surface transition-colors",
-                      active &&
-                        "text-on-surface after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-primary",
-                    )}
-                  >
-                    {l.label}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
-
-          <div className="flex justify-center">
             <Link href="/" className="leading-none">
-              <span className="font-display text-headline-md tracking-widest text-primary dark:text-primary-fixed-dim uppercase">
+              <span className="font-headline-lg text-headline-lg tracking-widest text-primary dark:text-primary-fixed-dim uppercase hover:opacity-70 transition-opacity duration-300 italic">
                 THE ARTISAN
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center justify-end gap-2 lg:gap-4 text-primary">
+          {/* Trailing Icons */}
+          <div className="flex gap-4 items-center justify-end text-primary dark:text-primary-fixed-dim">
             <button
               type="button"
               aria-label="Rechercher"
-              className="hidden lg:inline-flex p-2 hover:opacity-70 transition-opacity"
+              className="hidden md:inline-flex hover:opacity-70 transition-opacity duration-300 scale-95 active:scale-90 transition-transform"
             >
-              <span className="material-symbols-outlined text-2xl">search</span>
+              <span className="material-symbols-outlined">search</span>
             </button>
             <button
               type="button"
               aria-label="Personne"
-              className="hidden lg:inline-flex p-2 hover:opacity-70 transition-opacity"
+              className="hidden md:inline-flex hover:opacity-70 transition-opacity duration-300 scale-95 active:scale-90 transition-transform"
             >
-              <span className="material-symbols-outlined text-2xl">person</span>
+              <span className="material-symbols-outlined">person</span>
             </button>
             <button
               type="button"
               onClick={toggleCart}
               aria-label={`Panier (${totalItems})`}
-              className="relative p-2 hover:opacity-70 transition-opacity"
+              className="relative hover:opacity-70 transition-opacity duration-300 scale-95 active:scale-90 transition-transform"
             >
-              <span className="material-symbols-outlined text-2xl">shopping_bag</span>
+              <span className="material-symbols-outlined">shopping_bag</span>
               {totalItems > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-medium">
+                <span className="absolute -top-1 -right-1 min-w-[16px] h-[16px] px-1 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-medium">
                   {totalItems}
                 </span>
               )}
             </button>
           </div>
         </div>
-      </header>
+      </nav>
       <MobileMenu links={links} />
     </>
   );
