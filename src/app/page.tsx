@@ -9,15 +9,13 @@ export default function Home() {
         {/* Left 8 cols: Moody editorial photo */}
         <div className="w-full md:w-2/3 h-[512px] md:h-auto bg-surface-variant relative overflow-hidden">
           <Image
-            alt="Hero image"
-            className="absolute inset-0 w-full h-full object-cover object-center mix-blend-multiply opacity-90"
-            src="https://lh3.googleusercontent.com/aida/ADBb0uhLnIHp9ALT07L-mCC4odVxX3tEtgH9RDTkCKRGFagkTtRyST_55TRGkYm0DDUgEKFR9YF5TE3B7DKRvtE0fsv5pDcND1cnTDPij_QTRCGBRqknnQOhsuzNOa6s41q6qjrxoMI5oCETxgj4Nfw_0XkwmH9pCPhprlbNfDvL__09tROQPF-i82k1JZC0YnIb0DgsHfD1g806c_Y54VsjWUmmbiWdf0BiuxTRE3XtGgkgBCKG0q0pE9SxRNNW"
+            alt="L'Art du Vêtement"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&q=80&auto=format&fit=crop"
             fill
             priority
-            unoptimized
           />
-        </div>
-        {/* Right 4 cols: Content */}
+        </div>        {/* Right 4 cols: Content */}
         <div className="w-full md:w-1/3 flex flex-col justify-center px-gutter py-section-mobile md:py-0 bg-surface">
           <div className="max-w-md mx-auto md:ml-0 md:mr-auto pl-0 md:pl-12">
             <span className="font-label-md text-label-md text-outline uppercase tracking-widest block mb-8">
