@@ -37,9 +37,9 @@ export function Navigation() {
           scrolled && "shadow-[0_1px_0_rgba(29,27,25,0.08)]",
         )}
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 items-center w-full px-gutter py-6 max-w-content-max mx-auto">
+        <div className="flex justify-between items-center w-full px-gutter py-6 max-w-content-max mx-auto">
           {/* Navigation Links (Web) */}
-          <div className="hidden md:flex gap-8 items-center justify-start">
+          <div className="hidden md:flex flex-1 items-center gap-6 lg:gap-8 justify-start">
             {links.map((l) => {
               const active =
                 l.href === "/"
@@ -63,7 +63,7 @@ export function Navigation() {
           </div>
 
           {/* Brand Logo */}
-          <div className="flex md:justify-center justify-start items-center gap-4">
+          <div className="flex flex-shrink-0 justify-center items-center gap-4">
             <button
               type="button"
               onClick={openMobileMenu}
@@ -80,7 +80,7 @@ export function Navigation() {
           </div>
 
           {/* Trailing Icons */}
-          <div className="flex gap-4 items-center justify-end text-primary dark:text-primary-fixed-dim">
+          <div className="flex flex-1 gap-4 items-center justify-end text-primary dark:text-primary-fixed-dim">
             <button
               type="button"
               aria-label="Rechercher"
