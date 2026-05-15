@@ -7,12 +7,11 @@ export function Footer() {
     <footer className="border-t border-hairline bg-surface-container-low mt-section-mobile lg:mt-section">
       <div className="mx-auto max-w-content px-margin-mobile lg:px-margin py-16 grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
-          <span className="font-display italic text-headline-md text-on-surface">
-            L&apos;Artisan
+          <span className="font-display text-headline-md text-primary tracking-widest uppercase">
+            THE ARTISAN
           </span>
           <p className="text-body-sm text-on-surface-variant max-w-xs">
-            Vêtements faits à la main. Collections capsules mensuelles. Atelier
-            à Paris.
+            © 2024 THE ARTISAN ATELIER. HANDCRAFTED WITH INTENTION.
           </p>
         </div>
 

@@ -73,27 +73,34 @@ export function Navigation() {
 
           <div className="flex justify-center">
             <Link href="/" className="leading-none">
-              <span className="font-display italic text-headline-md text-on-surface tracking-tight">
-                L&apos;Artisan
+              <span className="font-display text-headline-md tracking-widest text-primary dark:text-primary-fixed-dim uppercase">
+                THE ARTISAN
               </span>
             </Link>
           </div>
 
-          <div className="flex items-center justify-end gap-2 lg:gap-4">
+          <div className="flex items-center justify-end gap-2 lg:gap-4 text-primary">
             <button
               type="button"
               aria-label="Rechercher"
-              className="hidden lg:inline-flex p-2 hover:text-primary"
+              className="hidden lg:inline-flex p-2 hover:opacity-70 transition-opacity"
             >
-              <Search className="w-5 h-5" />
+              <span className="material-symbols-outlined text-2xl">search</span>
+            </button>
+            <button
+              type="button"
+              aria-label="Personne"
+              className="hidden lg:inline-flex p-2 hover:opacity-70 transition-opacity"
+            >
+              <span className="material-symbols-outlined text-2xl">person</span>
             </button>
             <button
               type="button"
               onClick={toggleCart}
               aria-label={`Panier (${totalItems})`}
-              className="relative p-2"
+              className="relative p-2 hover:opacity-70 transition-opacity"
             >
-              <ShoppingBag className="w-5 h-5 text-on-surface" />
+              <span className="material-symbols-outlined text-2xl">shopping_bag</span>
               {totalItems > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-on-primary text-[10px] flex items-center justify-center font-medium">
                   {totalItems}
